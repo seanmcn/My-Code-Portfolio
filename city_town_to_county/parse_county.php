@@ -38,5 +38,8 @@ $county = $_GET['county'];
 if($county != null ) {
 	$parsedCounty =  parseCounty($county);
 	echo $parsedCounty;
+} else {
+	echo "Not a county";
 }
+
 ?>
