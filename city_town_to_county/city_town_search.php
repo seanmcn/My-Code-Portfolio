@@ -1,10 +1,11 @@
 <?php
-header('Access-Control-Allow-Origin: http://fiddle.jshell.net'); 
 //This is just to have access to the file via JsFiddle.
+header('Access-Control-Allow-Origin: http://fiddle.jshell.net');
 
-/*
-* Takes user input and returns applicable results in JSON.
-*/
+/**
+ * Takes user input and returns applicable results in JSON.
+ * @param $search
+ */
 function showLocation($search) {
 	// Username for Geonames API
 	$username = "seanmcnamara";
@@ -24,6 +25,7 @@ function showLocation($search) {
 	//Decode our response
 	$decoded = json_decode($curl_response);
 	$locations = array();
+
 	//Loop our way into a nicer array for our frontend form.
 	foreach($decoded->geonames as $geoname) {
 		$locations[] = array (
@@ -41,4 +43,3 @@ $search = $_GET['search'];
 if($search != null) {
 	showLocation($search);
 }
-?>
